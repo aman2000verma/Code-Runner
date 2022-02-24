@@ -1,0 +1,16 @@
+{
+  "Java 8": {
+    "notice": "Please name the class as Main to avoid errors",
+    "boilerCode": "public class Main{\npublic static void main(String[] args){\nSystem.out.println(\"Code Runner\");\n}\n}"
+  },
+
+  "Dart": {
+    "notice": null,
+    "boilerCode": "void main() {\nprint('Code Runner');\n}"
+  },
+
+  "JavaScript": {
+    "notice": "",
+    "boilerCode": "console.log('Code Runner')"
+  }
+}
