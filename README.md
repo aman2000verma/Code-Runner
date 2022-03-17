@@ -19,3 +19,4 @@ npm install
 ```
 npm start
 ```
+![Screenshot](/ss.png)
