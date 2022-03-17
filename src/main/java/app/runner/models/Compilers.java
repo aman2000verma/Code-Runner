@@ -15,21 +15,15 @@ public class Compilers {
         fileTypes = new HashMap<>();
         commands = new HashMap<>();
 
-        //Java 8
-        list.add("Java 8");
-        fileTypes.put("Java 8", ".java");
-        commands.put("Java 8", "cmd /c javac Main.java && java Main && del Main.class");
-
-        //Dart
-        list.add("Dart");
-        fileTypes.put("Dart", ".dart");
-        commands.put("Dart", "dart Main.dart");
-
         //JavaScript
         list.add("JavaScript");
         fileTypes.put("JavaScript", ".js");
         commands.put("JavaScript", "node Main.js");
 
+        //Golang
+        list.add("Golang");
+        fileTypes.put("Golang", ".go");
+        commands.put("Golang", "go run Main.go");
     }
 
     public String getFileType(String compiler) {
@@ -44,3 +38,4 @@ public class Compilers {
         return commands.get(compiler);
     }
 }
+

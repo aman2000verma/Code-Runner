@@ -64,9 +64,10 @@ public class ExecutionService {
 
     public Result runCode(ReqBody body) throws IOException {
         Code code = new Code(body.getIp(), body.getSyntax(), body.getCompiler(), body.getInput());
+        String sourceCodeFile = "";
         try {
             //1. Create a file with required extension
-            String sourceCodeFile = createFile(code.getSyntax(), code.getCompiler());
+            sourceCodeFile = createFile(code.getSyntax(), code.getCompiler());
 
             //2. Compile and Execute the file using CL commands
             String cmd = compilers.getCommands(code.getCompiler());
@@ -83,10 +84,13 @@ public class ExecutionService {
             }
             logger.info(res.getOutput());
             repo.save(code);
-
-            //3. Delete the file
-            deleteFile(sourceCodeFile);
         } catch (Exception e) {
+        } finally {
+            //3. Delete the file
+            try {
+                deleteFile(sourceCodeFile);
+            } catch (Exception e) {
+            }
         }
         //4. Return a Result object
         logger.info(code.toString());
@@ -118,7 +122,7 @@ class CLResult {
         String s = "";
         String line = "";
         while ((line = br.readLine()) != null) {
-            s += line;
+            s += line + "\n";
         }
         return s;
     }
@@ -132,7 +136,7 @@ class CLResult {
         String s = "";
         String line = "";
         while ((line = br.readLine()) != null) {
-            s += line;
+            s += line + "\n";
         }
         return s;
     }

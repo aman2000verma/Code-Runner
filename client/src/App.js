@@ -1,17 +1,7 @@
 import React from "react";
-import {
-  Button,
-  Combobox,
-  Heading,
-  Overlay,
-  Pane,
-  PlayIcon,
-  Spinner,
-  Textarea,
-  WarningSignIcon
-} from "evergreen-ui";
+import {Button, Combobox, Heading, Overlay, Pane, PlayIcon, Spinner, Textarea, WarningSignIcon} from "evergreen-ui";
 import axios from "axios";
-import { endpoints } from "./Api";
+import {endpoints} from "./Api";
 import LangMeta from "./lang-meta.json";
 
 function App() {
